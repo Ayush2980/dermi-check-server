@@ -60,8 +60,7 @@ def do_upload():
     except Exception as e:
         return e
 
-if __name__ == "__main__":
-    app.run()
+
 # waitress.serve(app, listen='0.0.0.0:5003')
 
 
