@@ -11,8 +11,16 @@ app = Flask(__name__)
 CORS(app)
 # JSON ENCODER
 
+# def parse_json(data):
+#     return json.loads(json_util.dumps(data))
+
 def parse_json(data):
-    return json.loads(json_util.dumps(data))
+    if isinstance(data, str):
+        return json.loads(data)
+    elif isinstance(data, dict):
+        return json.loads(json.dumps(data))
+    else:
+        raise ValueError("Invalid input type. Expected string or dictionary.")
 
 def predict_skin_disease(img):
     model = load_model('model.h5')
