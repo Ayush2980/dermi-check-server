@@ -57,14 +57,14 @@ const Login = () => {
     <Fragment>
       <motion.div
         initial={{ scale: 0 }}
-        animate={{ rotate: 360, scale: 1 }}
+        animate={{ scale: 1 }}
         transition={{
           type: "spring",
           stiffness: 260,
           damping: 20,
           duration: 2,
         }}
-        class="container d-flex justify-content-center align-items-center min-vh-100"
+        class="container d-flex justify-content-center min-vh-100"
       >
         <div
           style={{
@@ -72,6 +72,7 @@ const Login = () => {
               "rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;",
             backdropFilter: " blur(10px)",
             backgroundColor: "transparent",
+            height : "80vh",
           }}
           class="row border rounded-5 p-3 shadow box-area"
         >
