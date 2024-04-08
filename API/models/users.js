@@ -14,13 +14,8 @@ const userSchema = new mongoose.Schema({
     password : {
         type : String ,
         required : true
-    },
-    posts : [{
-      type : ObjectId , 
-      ref : "Blog"
-    }]
+    }
 })
-userSchema.pre("findOne" ,Populate("posts"))
 
 
 userSchema.pre("save", async function (next) {

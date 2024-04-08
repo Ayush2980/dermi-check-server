@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const {homePage} = require("../controllers/general");
+const {homePage , blogs} = require("../controllers/general");
 const { deserializeUser } = require("../middlewares/deserializeUser");
 
 router.get("/home", deserializeUser , homePage);
-router.get("/blogs" , )
+router.get("/blogs" , blogs)
 
 module.exports = router;

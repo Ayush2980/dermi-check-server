@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const multer = require("multer");
@@ -14,10 +15,13 @@ const general = require("./routes/general")
 const jsonData = require("./json/data.json")
 const authMobile = require("./routes/authMobile");
 const {deserializeUser} = require("./middlewares/deserializeUser");
+const {password , user} = process.env;
+const PORT  =process.env.port || 8000
+
 
 main().catch(e => console.log(e)).then(() => console.log("Database connected !!!"));
 async function main(){
-  await mongoose.connect('mongodb://127.0.0.1:27017/refreshT');
+  await mongoose.connect(`mongodb+srv://${user}:${password}@cluster0.juiwvco.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`);
 }
 
 const corsOptions = {
@@ -67,6 +71,6 @@ app.use((err ,req , res , next) => {
 
 
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
   console.log("Listening !!");
 });
