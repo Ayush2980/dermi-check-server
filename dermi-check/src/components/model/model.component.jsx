@@ -42,7 +42,7 @@ const ModelPage = () => {
         console.log("imght");
 
         const response = await axios.post(
-          "http://localhost:8000/test",
+          "https://dermi-check-server-i2ys.onrender.com/test",
           { image: image },
           {
             headers: {
@@ -64,13 +64,20 @@ const ModelPage = () => {
 
   return (
     <Fragment>
-      <div className="my-5 container container-model text-center">
-        <div className="row" style={{width : "100%"}}>
+      <div
+        className="my-5 container container-model text-center"
+        style={{
+          backdropFilter: "blur(10px)",
+          borderRadius: "50px",
+          boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+        }}
+      >
+        <div className="row" style={{ width: "100%" }}>
           <div className="col-md-4 col-12 mx-lg-2 left-container">
             <div
               className="box-container"
               style={{
-                backdropFilter: "blur(3px)",
+                backdropFilter: "blur(10px)",
                 height: "60vh",
                 border: "2px dashed #ccc",
                 borderRadius: "5px",
@@ -146,7 +153,11 @@ const ModelPage = () => {
             className="col-md-7 col-12 my-2 disease-display"
             style={{
               // boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+
               height: "50vh",
+              borderRadius : "50px",
               overflowY: "hidden",
               overflowX: "hidden",
             }}

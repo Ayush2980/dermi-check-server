@@ -25,12 +25,12 @@ async function main(){
 }
 
 const corsOptions = {
-  origin: '*',
+  origin: 'http://localhost:3000',
   // origin: '*',
   credentials: true,
 };
 
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.json());
 app.use(express.urlencoded({extended :true}))
 app.use(cookieParser());

@@ -14,9 +14,10 @@ const Community = () => {
   }, [currentUser]);
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get("http://localhost:8000/api/allBlogs");
-      console.log("heel", response.data);
-      setAllBlogs(response.data.blogs);
+      const {data} = await axios.get("http://localhost:8000/api/blogs");
+      console.log(data.data)
+      setAllBlogs(data.data);
+      // console.log("all" , allBlogs)
     };
     getData();
   }, []);
@@ -30,13 +31,6 @@ const Community = () => {
         {allBlogs?.map((e) => {
           return <BlogCard data={e} />;
         })}
-        {/* <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/> */}
       </div>
     </Fragment>
   );

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import cardImage1 from "../../assets/img/edited.png";
 import { motion } from "framer-motion";
+import PseudoNavbar from "../PseudoNavbar/pseudonavbar.component";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -120,23 +121,28 @@ const SignUp = () => {
 
   return (
     <Fragment>
+      <PseudoNavbar/>
       <div className="container d-flex justify-content-center align-items-center min-vh-100">
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ rotate: 360, scale: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-            duration: 2,
-          }}
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{  scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+          duration: 2,
+        }}
+        class="container d-flex justify-content-center align-items-center min-vh-100"
+      >
+        <div
           style={{
             boxShadow:
               "rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;",
             backdropFilter: " blur(10px)",
             backgroundColor: "transparent",
           }}
-          className="row border rounded-5 p-3 shadow box-area"
+          class="row border rounded-5 p-3 shadow box-area"
+          
         >
           <div
             className="extraFlow  col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
@@ -244,6 +250,7 @@ const SignUp = () => {
                 </small>
               </div>
             </div>
+          </div>
           </div>
         </motion.div>
       </div>

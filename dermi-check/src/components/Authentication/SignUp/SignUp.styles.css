@@ -45,3 +45,13 @@ body{
         background-color: transparent !important;
     }
 }
+
+.total-body{
+    width: 100vw !important;
+    margin: 0px !important;
+}
+
+.box-area{
+    height: 100% !important;
+    width: 100% !important;
+}

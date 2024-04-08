@@ -30,7 +30,7 @@ module.exports = {
   login : async(req , res , next) => {
     try{
         const {username , password} = req.body;
-        const userData = await userSchema.find({username : username});
+        const userData = await userSchema.findOne({username : username});
         if(!userData){
             return createError.Unauthorized("No such User Exists !!");
         }
