@@ -3,7 +3,6 @@ import json
 import numpy as np
 import cv2
 from keras.models import load_model
-from bson import json_util
 from flask_cors import CORS
 
 
