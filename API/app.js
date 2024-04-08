@@ -21,7 +21,8 @@ async function main(){
 }
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  // origin: 'http://localhost:3000',
+  origin: '*',
   credentials: true,
 };
 
@@ -37,13 +38,17 @@ app.use("/api" , authMobile)
 app.post("/test" , upload.single('image') ,async(req ,res , next) => {
     try{
       console.log("Hitt hhua");
-        const {data} = await axios.post('https://dermi-check-server-21.onrender.com/uploadTest' , {
-            image : req.file
+      console.log(req.file)
+      //https://dermi-check-server-875j.onrender.com/uploadTest
+        const {data} = await axios.post('http://127.0.0.1:5000/uploadTest' , {
+            image : req.file.buffer
         } ,  {
             headers: {
               'Content-Type': 'application/json'
+              // 'Content-Type': 'multipart/form-data'
             }
           })
+          console.log(data);
         console.log("launf")
         const responseObject = jsonData[data];
         const disease = data;
@@ -54,11 +59,6 @@ app.post("/test" , upload.single('image') ,async(req ,res , next) => {
     }
 })
 
-app.get("/api/do",  (req , res) => {
-  res.send("connected");
-})
-
-
 app.use((err ,req , res , next) => {
   console.log(err);
   res.send({error : err.message})
@@ -67,6 +67,6 @@ app.use((err ,req , res , next) => {
 
 
 
-app.listen(8000, () => {
+app.listen(9000, () => {
   console.log("Listening !!");
 });

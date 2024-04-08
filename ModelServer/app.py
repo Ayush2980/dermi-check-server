@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 from keras.models import load_model
 from flask_cors import CORS
-
+import tensorflow as tf
 
 app = Flask(__name__)
 CORS(app)
@@ -21,37 +21,18 @@ def parse_json(data):
     else:
         raise ValueError("Invalid input type. Expected string or dictionary.")
 
-def predict_skin_disease(img):
-    model = load_model('model.h5')
-    vgg_model = load_model('vgg_model.h5')
-    # img = cv2.imread(img)
-    img = cv2.resize(img, (180,180))
-    img = np.array(img) / 255.0
+def predict_brain_tumor(img_path):
+    print("1")
+    model = tf.keras.models.load_model('model.keras')
+    img = cv2.resize(img_path,(168,168))
+    img = np.expand_dims(img, axis=-1)
+    img = img / 255.0
     img = np.expand_dims(img, axis=0)
-    img = vgg_model.predict(img)
-    img = img.reshape(1,-1)
-    pred = model.predict(img)[0]
-    # print(pred)
-    predicted_class = np.argmax(pred)        
+    pred = model.predict(img)
+    predicted_class = np.argmax(pred)
+    brain_tumor = ['Pituitary', 'No Tumor', 'Glioma', 'Meningioma']
+    return brain_tumor[predicted_class]
 
-    disease_list = ['Acne and Rosacea Photos',
-            'Normal',
-            'vitiligo',
-            'Tinea Ringworm Candidiasis and other Fungal Infections',
-            'Melanoma Skin Cancer Nevi and Moles',
-            'Eczema Photos']
-    return disease_list[predicted_class]
-
-@app.route("/hello" ,methods=["POST"])
-def do():
-    try:
-        data = request.get_json()
-        return jsonify({"message" : data})
-        # img = data.get('name')
-        # return img
-    except Exception as e: 
-        print(e)
-        return e
     
 @app.route("/docheck")
 def dooo():
@@ -63,16 +44,32 @@ def do_upload():
     try:
         data = request.get_json()
         f = data.get('image')
-        print(type(f))
-        npImage = np.array(f['buffer']['data'] , dtype=np.uint8)
-        image_np = cv2.imdecode(npImage, cv2.IMREAD_COLOR)
-        disease = predict_skin_disease(image_np)
-        return disease
+        npImage = np.array(f['data'] , dtype=np.uint8)
+        image_np = cv2.imdecode(npImage, cv2.IMREAD_GRAYSCALE)
+        print(image_np.shape)
+        ans = predict_brain_tumor(image_np)
+        return jsonify(ans)
     except Exception as e:
         return e
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True , port=5000)
+
+
+
+
+
+
+# @app.route("/hello" ,methods=["POST"])
+# def do():
+#     try:
+#         data = request.get_json()
+#         return jsonify({"message" : data})
+#         # img = data.get('name')
+#         # return img
+#     except Exception as e: 
+#         print(e)
+#         return e
 
 # waitress.serve(app, listen='0.0.0.0:5003')
 
