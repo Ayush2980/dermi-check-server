@@ -36,14 +36,15 @@ app.use("/api" , general)
 app.use("/api" , authMobile)
 app.post("/test" , upload.single('image') ,async(req ,res , next) => {
     try{
-      console.log("hott")
-        const {data} = await axios.post('http://127.0.0.1:5000/uploadTest' , {
+      console.log("Hitt hhua");
+        const {data} = await axios.post('https://dermi-check-server-21.onrender.com/uploadTest' , {
             image : req.file
         } ,  {
             headers: {
               'Content-Type': 'application/json'
             }
           })
+        console.log("launf")
         const responseObject = jsonData[data];
         const disease = data;
         res.send({diseaseInfo : {...responseObject , disease : data }})

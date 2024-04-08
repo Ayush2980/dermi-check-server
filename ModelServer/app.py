@@ -52,6 +52,10 @@ def do():
     except Exception as e: 
         print(e)
         return e
+    
+@app.route("/docheck")
+def dooo():
+    return jsonify({"message" : "mil gaya chutiye"})
 
 
 @app.route("/uploadTest" , methods=["POST"])
