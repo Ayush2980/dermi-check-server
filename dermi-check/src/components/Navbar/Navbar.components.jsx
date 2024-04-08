@@ -45,7 +45,7 @@ const NavBar = () => {
   }
   return (
     <Fragment>
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor : "transparent"}}>
+      <nav className="navbar navbar-expand-lg" style={{ backgroundColor : "transparent" , justifyContent : "space-between"}}>
         <div className="container">
           <a className="navbar-brand fs-4" href="#">
             DermiCheck

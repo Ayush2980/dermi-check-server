@@ -21,8 +21,8 @@ async function main(){
 }
 
 const corsOptions = {
-  // origin: 'http://localhost:3000',
-  origin: '*',
+  origin: 'http://localhost:3000',
+  // origin: '*',
   credentials: true,
 };
 
@@ -39,8 +39,8 @@ app.post("/test" , upload.single('image') ,async(req ,res , next) => {
     try{
       console.log("Hitt hhua");
       console.log(req.file)
-      //https://dermi-check-server-875j.onrender.com/uploadTest
-        const {data} = await axios.post('http://127.0.0.1:5000/uploadTest' , {
+      //https://dermi-check-server-1-tc0o.onrender.com/uploadTest
+        const {data} = await axios.post('https://dermi-check-server-1-tc0o.onrender.com/uploadTest' , {
             image : req.file.buffer
         } ,  {
             headers: {
@@ -67,6 +67,6 @@ app.use((err ,req , res , next) => {
 
 
 
-app.listen(9000, () => {
+app.listen(8000, () => {
   console.log("Listening !!");
 });
