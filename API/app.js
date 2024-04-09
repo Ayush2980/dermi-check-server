@@ -25,8 +25,8 @@ async function main(){
 }
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
-  // origin: '*',
+  // origin: 'http://localhost:3000',
+  origin: '*',
   credentials: true,
 };
 

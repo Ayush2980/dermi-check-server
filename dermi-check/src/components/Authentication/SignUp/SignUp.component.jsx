@@ -36,7 +36,7 @@ const SignUp = () => {
       data: {
         username: username,
       },
-    });
+    } , {withCredentials : true});
     // console.log(isThere.data)
     return isThere.data.isAvail;
   };
