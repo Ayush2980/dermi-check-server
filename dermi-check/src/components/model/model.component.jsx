@@ -43,7 +43,7 @@ const ModelPage = () => {
       if (image) {
         setDisease("Loading");
         console.log("imght");
-
+        setLoad(true)
         const response = await axios.post(
           "https://dermi-check-server-i2ys.onrender.com/test",
           { image: image },
@@ -55,11 +55,9 @@ const ModelPage = () => {
           }
         );
         console.log("Received");
-        // console.log(response);
         const { diseaseInfo } = response.data;
         setDisease(jsonData[diseaseInfo.disease]);
-        setName(diseaseInfo.disease)
-        //error handling left
+        setLoad(false);
       } else throw new Error("Please Select Image to upload");
     } catch (e) {
       console.log(e);

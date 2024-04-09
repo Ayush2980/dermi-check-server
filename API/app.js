@@ -27,6 +27,7 @@ async function main(){
 const corsOptions = {
   // origin: 'http://localhost:3000',
   origin: 'https://cerebroscan.onrender.com',
+
   credentials: true,
 };
 

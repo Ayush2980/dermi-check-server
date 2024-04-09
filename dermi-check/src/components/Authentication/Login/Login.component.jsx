@@ -96,7 +96,7 @@ const Login = () => {
                 fontWeight: 600,
               }}
             >
-              Be Verified
+              Login to Continue
             </p>
             <small
               class="text-white text-wrap text-center"
@@ -105,7 +105,7 @@ const Login = () => {
                 fontFamily: "'Courier New', Courier, monospace",
               }}
             >
-              Join experienced Designers on this platform.
+              Join our vibrant community of health enthusiasts.
             </small>
           </div>
 
@@ -124,7 +124,7 @@ const Login = () => {
             </div>
             <div class="row align-items-center">
               <div class="header-text mb-4">
-                <h2>Hello,Again</h2>
+                <h2>Welcome</h2>
                 <p>We are happy to have you back.</p>
               </div>
               <form onSubmit={handleSubmit}>

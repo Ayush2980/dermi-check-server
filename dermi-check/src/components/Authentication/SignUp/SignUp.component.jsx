@@ -162,7 +162,7 @@ const SignUp = () => {
                 fontWeight: 600,
               }}
             >
-              Be Verified
+              Sign Up To continue
             </p>
             <small
               className="text-white text-wrap text-center"
@@ -171,14 +171,14 @@ const SignUp = () => {
                 fontFamily: "'Courier New', Courier, monospace",
               }}
             >
-              Join experienced Designers on this platform.
+              Join our vibrant community of health enthusiasts.
             </small>
           </div>
 
           <div className="col-md-6 right-box">
             <div className="row align-items-center">
               <div className="header-text mb-4">
-                <h2>Hello</h2>
+                <h2>Welcome</h2>
                 <p>Join Our Community by registering Now!!!</p>
               </div>
               <form onSubmit={onsubmit}>
