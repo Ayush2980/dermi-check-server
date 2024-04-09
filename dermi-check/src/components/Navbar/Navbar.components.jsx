@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Fragment, useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/user.context";
 import axios from "axios";
+import Logo from "../assets/img/Logo.png"
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -18,26 +19,10 @@ const NavBar = () => {
   const Logout = async () => {
     try{
       console.log(currentUser)
-      const response = await axios.get("http://localhost:8000/api/logout", {withCredentials :true} );
+      const response = await axios.get("https://dermi-check-server-i2ys.onrender.com/api/logout", {withCredentials :true} );
       navigate("/")
       setCurrentUser(null);
 
-    }
-    catch(e){
-      console.log(e);
-    }
-  }
-  const handleCommunityClick = async() => {
-    try{
-      console.log("Clicked")
-      const data = await axios.get("http://localhost:8000/api/isLoggedIn", {withCredentials :true})
-      console.log(data)
-      const {success} = data.data;
-      console.log(success)
-      if(success) navigate("/Community")
-      else{
-        navigate("/Login")
-      }
     }
     catch(e){
       console.log(e);
@@ -47,8 +32,11 @@ const NavBar = () => {
     <Fragment>
       <nav className="navbar navbar-expand-lg" style={{ backgroundColor : "transparent" , justifyContent : "space-between"}}>
         <div className="container">
+          <a href="/">
+            <img style={{width : "60px"}}  src={Logo} alt="" />
+            </a>
           <a className="navbar-brand fs-4" href="#">
-            DermiCheck
+            CerebroScan
           </a>
           <button
             className="navbar-toggler shadow-none border-0"
@@ -68,7 +56,7 @@ const NavBar = () => {
           >
             <div className="offcanvas-header text-dark border-bottom">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                DermiCheck
+                CerebroScan
               </h5>
               <button
                 type="button"
@@ -82,11 +70,6 @@ const NavBar = () => {
                 <li className="nav-item">
                   <a className="nav-link" aria-current="page" href="/">
                     Home
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#" onClick={handleCommunityClick}>
-                    Community
                   </a>
                 </li>
                 <li className="nav-item">

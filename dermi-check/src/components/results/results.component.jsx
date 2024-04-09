@@ -5,23 +5,22 @@ import Loader from "./subTabs/Loader.component";
 import "./results.styles.css";
 import img1 from "../assets/img/cards1.png"
 
-const Result = ({ data }) => {
+const Result = ({ data , name , load }) => {
   return (
     <Fragment>
       <div className="result-container">
         <div id="carouselExample" class="carousel slide">
           <div class="carousel-inner">
+            <h3 className="my-2">{name}</h3>
             <div class="carousel-item active">
-              {/* <img src={img1} class="d-block w-100" alt="..." /> */}
-              <h1>Disease</h1>
-              <h3>Prevetion</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id amet laborum eius nulla nisi quidem esse quasi sapiente aspernatur corrupti consectetur voluptates labore facilis laudantium quae quas ducimus enim atque, quod aut! Sunt, nam praesentium reprehenderit tenetur quo, quos recusandae velit, inventore corrupti cum aut nesciunt odio modi veritatis eum.</p>
+              <TabData title={"Cures"} load={load} info={data.cures} />
             </div>
             <div class="carousel-item">
+              <TabData title={"Prevention"} load={load} info={data.prevention} />
               
             </div>
             <div class="carousel-item">
-              <img src={img1} class="d-block w-100" alt="..." />
+              <TabData title={"Symptoms"} load={load} info={data.symptoms} />
             </div>
           </div>
           <button

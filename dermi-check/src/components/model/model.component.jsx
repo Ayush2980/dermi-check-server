@@ -4,12 +4,15 @@ import axios from "axios";
 import "./model.styles.css";
 import Result from "../results/results.component";
 import { diseaseContext } from "../../contexts/disease.context";
+import jsonData from "../json/newData.json"
 
 const ModelPage = () => {
   // const { disease, setDisease } = useContext(diseaseContext);
-  const [disease, setDisease] = useState("default");
+  const [disease, setDisease] = useState("Upload Your MRI to se reports");
+  const [name, setName] = useState("Upload Your MRI to see Reports");
   const [image, setImage] = useState(null);
   const [btn, setBtn] = useState("disabled");
+  const [load , setLoad] = useState(false)
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -50,10 +53,11 @@ const ModelPage = () => {
             },
           }
         );
-        console.log(response);
+        console.log("Received");
+        // console.log(response);
         const { diseaseInfo } = response.data;
-        console.log(diseaseInfo);
-        setDisease(diseaseInfo);
+        setDisease(jsonData[diseaseInfo.disease]);
+        setName(diseaseInfo.disease)
         //error handling left
       } else throw new Error("Please Select Image to upload");
     } catch (e) {
@@ -61,6 +65,7 @@ const ModelPage = () => {
       //Here create the error handler
     }
   };
+
 
   return (
     <Fragment>
@@ -162,7 +167,7 @@ const ModelPage = () => {
               overflowX: "hidden",
             }}
           >
-            <Result data={disease} />
+            <Result data={disease} name={name} load={load}/>
           </div>
         </div>
       </div>

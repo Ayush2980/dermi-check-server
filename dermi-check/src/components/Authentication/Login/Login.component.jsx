@@ -39,7 +39,7 @@ const Login = () => {
     try {
       e.preventDefault();
       const response = await axios.post(
-        "http://localhost:8000/api/login",
+        "https://dermi-check-server-i2ys.onrender.com/api/login",
         userData,
         { withCredentials: true }
       );

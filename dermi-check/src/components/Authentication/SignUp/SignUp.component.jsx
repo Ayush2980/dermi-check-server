@@ -32,7 +32,7 @@ const SignUp = () => {
     if (username.includes(" ")) return 3;
     const isThere = await axios({
       method: "post",
-      url: "http://localhost:8000/api/checkUser",
+      url: "https://dermi-check-server-i2ys.onrender.com/api/checkUser",
       data: {
         username: username,
       },
@@ -108,7 +108,7 @@ const SignUp = () => {
       e.preventDefault();
       console.log(userData);
       const response = await axios.post(
-        "http://localhost:8000/api/register",
+        "https://dermi-check-server-i2ys.onrender.com/api/register",
         userData,
         { withCredentials: true }
       );

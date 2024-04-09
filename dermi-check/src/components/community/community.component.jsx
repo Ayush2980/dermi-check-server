@@ -14,7 +14,7 @@ const Community = () => {
   }, [currentUser]);
   useEffect(() => {
     const getData = async () => {
-      const {data} = await axios.get("http://localhost:8000/api/blogs");
+      const {data} = await axios.get("https://dermi-check-server-i2ys.onrender.com/api/blogs");
       console.log(data.data)
       setAllBlogs(data.data);
       // console.log("all" , allBlogs)

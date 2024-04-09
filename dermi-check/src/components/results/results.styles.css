@@ -26,12 +26,20 @@
 
 .carousel-inner {
   height: 100%;
+  position: relative;
 
+}
+
+.data-inside{
+  width: 80%;
+  margin-left: 5%;
 }
 
 .carousel-item {
-  height: 100% !important;
-  width: 90% !important;
+  height: 80% !important;
+  width: 97% !important;
   margin-left: 20px;
-  padding: 10%;
+  padding: 0%;
+  overflow-y: scroll;
 }
+

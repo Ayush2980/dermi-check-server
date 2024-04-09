@@ -11,6 +11,8 @@ import { useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import Reveal from "../animation/Reveal.component";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer.component"
+
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ const HomePage = () => {
   const [screen, setScreen] = useState("h");
   useEffect(() => {
     async function fetchData() {
-      const data = await axios.get("http://localhost:8000/api/home", {
+      const data = await axios.get("https://dermi-check-server-i2ys.onrender.com/api/home", {
         withCredentials: true,
       });
       console.log(data);
@@ -157,6 +159,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </Fragment>
   );
 };
