@@ -11,8 +11,7 @@ import { useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import Reveal from "../animation/Reveal.component";
 import { useNavigate } from "react-router-dom";
-import Footer from "../Footer/Footer.component"
-
+import Footer from "../Footer/Footer.component";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -21,9 +20,12 @@ const HomePage = () => {
   const [screen, setScreen] = useState("h");
   useEffect(() => {
     async function fetchData() {
-      const data = await axios.get("https://dermi-check-server-i2ys.onrender.com/api/home", {
-        withCredentials: true,
-      });
+      const data = await axios.get(
+        "https://dermi-check-server-i2ys.onrender.com/api/home",
+        {
+          withCredentials: true,
+        }
+      );
       console.log(data);
       if (data.data.user) {
         setCurrentUser(data.data.user);
@@ -42,16 +44,24 @@ const HomePage = () => {
           <div class="container">
             <Reveal>
               <div class="info" style={{ width: "75%" }}>
-                <h1>DermiCheck</h1>
+                <h1>CerebroScan</h1>
                 <p>
-                  Uncover healthier skin with our advanced app. Quickly identify
-                  and understand skin conditions using image recognition. From
-                  common issues to rare challenges, get accurate diagnoses
-                  effortlessly. Take control of your skin health journey with
-                  confidence. Welcome to a future where skincare is simple and
-                  personalized.
+                  Discover a revolutionary leap in healthcare with our
+                  cutting-edge brain tumor detection app. Seamlessly analyze
+                  brain MRI images using state-of-the-art image recognition
+                  technology for swift and accurate diagnoses. From common tumor
+                  types to complex anomalies, our app empowers users to identify
+                  and understand brain tumors with precision. Take charge of
+                  your health journey confidently as we usher in a future where
+                  detecting brain tumors is intuitive, reliable, and
+                  personalized. Welcome to a new era of healthcare innovation.
                 </p>
-                <button style={{backgroundColor : "#10c3a5" , color : "white"}} onClick={() =>navigate("/check") }>Get Started</button>
+                <button
+                  style={{ backgroundColor: "#10c3a5", color: "white" }}
+                  onClick={() => navigate("/check")}
+                >
+                  Get Started
+                </button>
               </div>
             </Reveal>
             <Reveal>
@@ -74,14 +84,18 @@ const HomePage = () => {
                   />
                   <div class="card-body">
                     <h5 class="card-title text-center">
-                      How DermiCheck Helps ?
+                      How CerebroScan Helps ?
                     </h5>
                     <p class="card-text text-center">
-                      Instantly receive comprehensive results for your skin
-                      concerns with our intuitive web app. Upload images, and
-                      our advanced AI algorithms will provide quick and accurate
-                      diagnoses, empowering you with essential information about
-                      your skin health.
+                      Get immediate, in-depth insights into your brain health
+                      with our intuitive brain tumor detection app. Simply
+                      upload brain MRI images, and our advanced AI algorithms
+                      will swiftly and accurately analyze them, providing
+                      comprehensive diagnoses. Empower yourself with crucial
+                      information about potential brain tumors, enabling
+                      proactive management of your neurological well-being.
+                      Experience a seamless and informative journey towards
+                      better brain health with our innovative application.
                     </p>
                   </div>
                 </div>
@@ -98,12 +112,12 @@ const HomePage = () => {
                   <div class="card-body">
                     <h5 class="card-title text-center">Accurate Results !</h5>
                     <p class="card-text text-center">
-                      Rely on our state-of-the-art AI technology for precise and
-                      reliable results. Our advanced algorithms analyze images
-                      with exceptional accuracy, ensuring you receive
-                      trustworthy information about your skin concerns.
-                      Experience the power of AI-driven diagnostics for a more
-                      informed and efficient approach to managing your skin
+                      Count on our state-of-the-art AI technology for accurate
+                      and dependable results. Our advanced algorithms
+                      meticulously analyze images with exceptional precision,
+                      guaranteeing trustworthy information regarding your skin
+                      concerns. Embrace the power of AI-driven diagnostics for a
+                      more informed and efficient approach to managing your skin
                       health.
                     </p>
                   </div>
@@ -123,12 +137,13 @@ const HomePage = () => {
                       Get Help From Doctors
                     </h5>
                     <p class="card-text text-center">
-                      Connect with experienced dermatologists seamlessly through
-                      our app. Gain valuable insights, personalized advice, and
-                      treatment recommendations from licensed professionals. Our
-                      platform ensures convenient and confidential communication
-                      for a more informed and confident approach to your skin
-                      care journey.
+                      Count on our cutting-edge AI technology for meticulous and
+                      dependable outcomes. Our advanced algorithms meticulously
+                      analyze images with unparalleled precision, guaranteeing
+                      you receive dependable information regarding your brain
+                      health concerns. Embrace the efficacy of AI-driven
+                      diagnostics for a more informed and effective strategy in
+                      handling your neurological well-being.
                     </p>
                   </div>
                 </div>
@@ -145,12 +160,14 @@ const HomePage = () => {
                   <div class="card-body">
                     <h5 class="card-title text-center">Get Medication </h5>
                     <p class="card-text text-center">
-                      Streamline your treatment process by accessing medication
-                      recommendations directly within our app. Receive
-                      personalized prescriptions and guidance on
-                      over-the-counter remedies tailored to your specific skin
-                      condition. Take the guesswork out of finding the right
-                      solutions for your skin health needs.
+                      Optimize your treatment journey with seamless access to
+                      medication recommendations within our app. Receive
+                      personalized prescriptions and expert guidance on
+                      over-the-counter remedies curated specifically for your
+                      unique skin condition. Eliminate guesswork and uncertainty
+                      by leveraging our app's tailored solutions for your skin
+                      health needs, ensuring a smoother and more effective
+                      treatment process.
                     </p>
                   </div>
                 </div>
@@ -159,7 +176,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </Fragment>
   );
 };
